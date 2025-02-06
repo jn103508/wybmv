@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('background.jpg'); /* Placeholder for background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 20vh;
+        }
+        .image-placeholder {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255,255,255,0.3);
+            margin: 20px auto;
+            display: block;
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes { background-color: green; color: white; }
+        .no { background-color: red; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">Will you be my Valentine?</h1>
+        <img id="slide-image" class="image-placeholder" src="slide1.jpg" alt="Slide Image"> <!-- Placeholder for slide images -->
+        <div id="buttons">
+            <button class="yes" onclick="nextSlide(true)">Yes</button>
+            <button class="no" onclick="nextSlide(false)">No</button>
+        </div>
+    </div>
+
+    <script>
+        let step = 0;
+        const slides = [
+            { question: "Are you sure you don't want to be my Valentine?", image: "slide2.jpg" },
+            { question: "Please be my Valentine!!!", image: "slide3.jpg" },
+            { question: "I'm begging you PLEASE be my Valentine or else!", image: "slide4.jpg" },
+            { question: "Do you want to be my Valentine?", image: "slide5.jpg", oneOption: true }
+        ];
+        
+        function nextSlide(saidYes) {
+            if (saidYes || step >= slides.length) {
+                document.body.innerHTML = `
+                    <div class='container'>
+                        <h1>Yay! You're my Valentine! ❤️</h1>
+                        <img class='image-placeholder' src='end.jpg' alt='Final Image'> <!-- Placeholder for final image -->
+                    </div>
+                `;
+                return;
+            }
+            
+            const slide = slides[step];
+            document.getElementById("question").textContent = slide.question;
+            document.getElementById("slide-image").src = slide.image;
+            step++;
+
+            if (slide.oneOption) {
+                document.getElementById("buttons").innerHTML = `<button class="yes" onclick="nextSlide(true)">Yes, I would love to be your Valentine!</button>`;
+            }
+        }
+    </script>
+</body>
+</html>
