@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-image: url('vday.png'); /* Updated background image */
+            background-image: url('vday.png'); /* Background image from root directory */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -33,10 +33,8 @@
         .image-placeholder {
             width: 80%;
             max-width: 300px;
-            height: auto;
-            background-image: url('cute_placeholder.jpg'); /* Cute placeholder image */
-            background-size: cover;
-            background-position: center;
+            height: 200px; /* Set fixed height for placeholders */
+            background-color: #ccc; /* Placeholder background color */
             margin: 20px auto;
             display: block;
         }
@@ -69,9 +67,11 @@
 </head>
 <body>
     <div class="container">
-        <img id="top-image" class="image-placeholder" src="cute_placeholder.jpg" alt="Cute placeholder above question"> <!-- Added image placeholder above each question -->
+        <!-- Placeholder for top image -->
+        <img id="top-image" class="image-placeholder" src="cute_placeholder.jpg" alt="Cute placeholder above question"> 
         <h1 id="question">Will you be my Valentine?</h1>
-        <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> <!-- Cute placeholder for slide images -->
+        <!-- Placeholder for slide image -->
+        <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> 
         <div id="buttons">
             <button class="yes" onclick="nextSlide(true)">Yes, I will be your Valentine</button>
             <button class="no" onclick="nextSlide(false)">No, I won't be your Valentine</button>
@@ -93,7 +93,7 @@
                     <div class='container'>
                         <h1>Yay! You're my Valentine! ❤️</h1>
                         <h1>See You on Feb 10th 😉</h1>
-                        <img class='image-placeholder' src='IMG_2237.jpg' alt='Final Cute Image'> <!-- Cute placeholder for final image -->
+                        <img class='image-placeholder' src='IMG_2237.jpg' alt='Final Cute Image'> 
                     </div>
                 `;
                 return;
