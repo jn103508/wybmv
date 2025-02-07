@@ -69,6 +69,7 @@
 </head>
 <body>
     <div class="container">
+        <img id="top-image" class="image-placeholder" src="cute_placeholder.jpg" alt="Cute placeholder above question"> <!-- Added image placeholder above each question -->
         <h1 id="question">Will you be my Valentine?</h1>
         <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> <!-- Cute placeholder for slide images -->
         <div id="buttons">
@@ -80,10 +81,10 @@
     <script>
         let step = 0;
         const slides = [
-            { question: "Are you sure you don't want to be my Valentine?", image: "cute_slide2.jpg" },
-            { question: "Please be my Valentine!!!", image: "cute_slide3.jpg" },
-            { question: "I'm begging you PLEASE be my Valentine or else!", image: "cute_slide4.jpg" },
-            { question: "Do you want to be my Valentine?", image: "cute_slide5.jpg", oneOption: true }
+            { question: "Are you sure you don't want to be my Valentine?", image: "cute_slide2.jpg", topImage: "cute_top2.jpg" },
+            { question: "Please be my Valentine!!!", image: "cute_slide3.jpg", topImage: "cute_top3.jpg" },
+            { question: "I'm begging you PLEASE be my Valentine or else!", image: "cute_slide4.jpg", topImage: "cute_top4.jpg" },
+            { question: "Do you want to be my Valentine?", image: "cute_slide5.jpg", oneOption: true, topImage: "cute_top5.jpg" }
         ];
         
         function nextSlide(saidYes) {
@@ -101,6 +102,7 @@
             const slide = slides[step];
             document.getElementById("question").textContent = slide.question;
             document.getElementById("slide-image").src = slide.image;
+            document.getElementById("top-image").src = slide.topImage; // Update the top image placeholder for each slide
             step++;
 
             if (slide.oneOption) {
