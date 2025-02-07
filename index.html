@@ -68,7 +68,7 @@
         button {
             font-size: 5vw; /* Font size based on viewport width */
             padding: 10px;
-			margin-bottom: 4px;
+            margin-bottom: 4px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
@@ -79,6 +79,33 @@
         .yes { background-color: green; color: white; }
         .no { background-color: red; color: white; }
 
+        /* Heart Animation */
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            font-size: 2rem;
+            color: red;
+            animation: floatHeart 3s ease-in forwards;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2) translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        .hearts-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -87,7 +114,7 @@
         <img id="top-image" class="image-placeholder" src="https://media.tenor.com/lnI645QIjMAAAAAi/gatitos-enamorados-besos-de-amor.gif" alt="Cute placeholder above question"> 
         <h1 id="question">Denise, will you be my Valentine?</h1>
         <!-- Placeholder for slide image -->
-        <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> 
+        <img id="slide-image" class="image-placeholder" src="IMG_8305.jpeg" alt="Cute Slide Image"> 
         <div id="buttons">
             <button class="yes" onclick="nextSlide(true)">Yes, I will be your Valentine</button>
             <button class="no" onclick="nextSlide(false)">No, I won't be your Valentine</button>
@@ -110,6 +137,9 @@
                         <h1>Yay! You're my Valentine! ❤️</h1>
                         <h1>See You on Feb 10th, 6:00PM 😉</h1>
                         <img class='image-placeholder' src='IMG_2237.jpeg' alt='Final Cute Image'> 
+                        <div class="hearts-container" onclick="addHearts()">
+                            <button class="yes" style="font-size: 5vw;">Love You!</button>
+                        </div>
                     </div>
                 `;
                 return;
@@ -123,6 +153,19 @@
 
             if (slide.oneOption) {
                 document.getElementById("buttons").innerHTML = `<button class="yes" onclick="nextSlide(true)">Yes, I would love to be your Valentine!</button>`;
+            }
+        }
+
+        // Add hearts animation when "Love You!" button is clicked
+        function addHearts() {
+            const heartsContainer = document.querySelector('.hearts-container');
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = '❤️';
+                heart.style.left = `${Math.random() * 100}%`; // Random horizontal position
+                heartsContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000); // Remove heart after animation ends
             }
         }
     </script>
