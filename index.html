@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
     <style>
+        /* Base styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -21,55 +22,70 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            overflow: hidden; /* Prevent scrollbars */
         }
+
         .container {
-            text-align: center;
-            padding: 10px;
-            max-width: 90%;
+            padding: 5%; /* Added padding for better spacing */
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 90%; /* Set container to 90% height to fit content */
+            max-width: 90%;
+            overflow: hidden; /* Ensure content doesn't overflow */
         }
+
+        /* Image styles */
         .image-placeholder {
             width: 80%;
-            max-width: 300px;
-            height: 200px; /* Set fixed height for placeholders */
-            background-color: #ccc; /* Placeholder background color */
-            margin: 20px auto;
-            display: block;
+            max-width: 220px; /* Maximum width for images */
+            height: auto; /* Auto adjust height based on aspect ratio */
+            margin: 10px 0;
         }
+
+        /* Title styles */
         h1 {
             color: white;
-            font-size: 8vw;
+            font-size: 8vw; /* Font size based on viewport width */
             max-width: 90%;
             text-shadow: 2px 2px 4px black;
             word-wrap: break-word;
-            text-align: center;
+            margin: 0;
+            padding: 10px;
         }
+
+        /* Button container */
         #buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 5%; /* Adjust button spacing */
+            width: 100%;
         }
+
+        /* Button styles */
         button {
-            font-size: 5vw;
-            max-width: 80%;
+            font-size: 5vw; /* Font size based on viewport width */
             padding: 10px;
+			margin-bottom: 4px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             text-align: center;
+            width: 80%; /* Make buttons fit within the container */
         }
+
         .yes { background-color: green; color: white; }
         .no { background-color: red; color: white; }
+
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Placeholder for top image -->
-        <img id="top-image" class="image-placeholder" src="cute_placeholder.jpg" alt="Cute placeholder above question"> 
-        <h1 id="question">Will you be my Valentine?</h1>
+        <img id="top-image" class="image-placeholder" src="https://media.tenor.com/lnI645QIjMAAAAAi/gatitos-enamorados-besos-de-amor.gif" alt="Cute placeholder above question"> 
+        <h1 id="question">Denise, will you be my Valentine?</h1>
         <!-- Placeholder for slide image -->
         <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> 
         <div id="buttons">
@@ -81,10 +97,10 @@
     <script>
         let step = 0;
         const slides = [
-            { question: "Are you sure you don't want to be my Valentine?", image: "IMG_2303.jpg", topImage: "cute_top2.jpg" },
-            { question: "Please be my Valentine!!!", image: "IMG_3880.jpg", topImage: "cute_top3.jpg" },
-            { question: "I'm begging you PLEASE be my Valentine or else!", image: "IMG_0426.jpg", topImage: "cute_top4.jpg" },
-            { question: "You leave me no choice. Now do you want to be my Valentine?", image: "IMG_8223.jpg", oneOption: true, topImage: "cute_top5.jpg" }
+            { question: "Are you sure you don't want to be my Valentine?", image: "IMG_2303.jpeg", topImage: "https://media1.tenor.com/m/Dkbuo7Dii9kAAAAd/tkthao219-bubududu.gif" },
+            { question: "Please be my Valentine!!!", image: "IMG_3880.jpeg", topImage: "https://media.tenor.com/DSQJAn3z6oMAAAAi/dudu-crying-i-want-food.gif" },
+            { question: "I'm begging you PLEASE be my Valentine or else!", image: "IMG_0426.jpeg", topImage: "https://media.tenor.com/FkhHW_OewrcAAAAi/bubu-thinking-new-bubu-sad.gif" },
+            { question: "You leave me no choice. Now do you want to be my Valentine?", image: "IMG_8223.jpeg", oneOption: true, topImage: "https://media.tenor.com/sINOiu9liqkAAAAi/tkthao219-bubududu.gif" }
         ];
         
         function nextSlide(saidYes) {
@@ -92,8 +108,8 @@
                 document.body.innerHTML = `
                     <div class='container'>
                         <h1>Yay! You're my Valentine! ❤️</h1>
-                        <h1>See You on Feb 10th 😉</h1>
-                        <img class='image-placeholder' src='IMG_2237.jpg' alt='Final Cute Image'> 
+                        <h1>See You on Feb 10th, 6:00PM 😉</h1>
+                        <img class='image-placeholder' src='IMG_2237.jpeg' alt='Final Cute Image'> 
                     </div>
                 `;
                 return;
