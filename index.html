@@ -26,6 +26,9 @@
             text-align: center;
             padding: 10px;
             max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .image-placeholder {
             width: 80%;
@@ -43,6 +46,13 @@
             max-width: 90%;
             text-shadow: 2px 2px 4px black;
             word-wrap: break-word;
+            text-align: center;
+        }
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         button {
             font-size: 5vw;
@@ -51,6 +61,7 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            text-align: center;
         }
         .yes { background-color: green; color: white; }
         .no { background-color: red; color: white; }
@@ -61,8 +72,8 @@
         <h1 id="question">Will you be my Valentine?</h1>
         <img id="slide-image" class="image-placeholder" src="cute_slide1.jpg" alt="Cute Slide Image"> <!-- Cute placeholder for slide images -->
         <div id="buttons">
-            <button class="yes" onclick="nextSlide(true)">Yes</button>
-            <button class="no" onclick="nextSlide(false)">No</button>
+            <button class="yes" onclick="nextSlide(true)">Yes, I will be your Valentine</button>
+            <button class="no" onclick="nextSlide(false)">No, I won't be your Valentine</button>
         </div>
     </div>
 
@@ -80,6 +91,7 @@
                 document.body.innerHTML = `
                     <div class='container'>
                         <h1>Yay! You're my Valentine! ❤️</h1>
+                        <h1>See You on Feb 10th 😉</h1>
                         <img class='image-placeholder' src='cute_end.jpg' alt='Final Cute Image'> <!-- Cute placeholder for final image -->
                     </div>
                 `;
